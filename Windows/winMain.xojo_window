@@ -227,6 +227,7 @@ Begin Window winMain
          AllowFocusRing  =   True
          AllowTabs       =   False
          Backdrop        =   0
+         DoubleBuffer    =   False
          Enabled         =   True
          Height          =   20
          Index           =   0
@@ -253,6 +254,7 @@ Begin Window winMain
          AllowFocusRing  =   True
          AllowTabs       =   False
          Backdrop        =   0
+         DoubleBuffer    =   False
          Enabled         =   True
          Height          =   20
          Index           =   1
@@ -279,6 +281,7 @@ Begin Window winMain
          AllowFocusRing  =   True
          AllowTabs       =   False
          Backdrop        =   0
+         DoubleBuffer    =   False
          Enabled         =   True
          Height          =   20
          Index           =   2
@@ -450,7 +453,7 @@ Begin Window winMain
       TabIndex        =   3
       TabPanelIndex   =   0
       TabStop         =   True
-      Text            =   "This is a simple open-source, cross platform Xojo project created as a code sample.  It demonstrate GUI layout, graphics, classes, reusable container controls, delegatated callbacks, PDF creation and threading.  Set parameters below for random image generation.\n\nView the About menu for more examples, credits and image attribution."
+      Text            =   "This is an open-source, cross-platform Xojo project created as a code sample.  It demonstrate GUI layout, graphics, classes, reusable container controls, delegatated callbacks, PDF creation and threading.  Set parameters below for random image generation.\r\n\r\nView the About menu for more examples, credits and image attribution."
       TextAlignment   =   0
       TextColor       =   &c00000000
       Tooltip         =   ""
@@ -535,7 +538,7 @@ End
 		  case 0
 		    c = tempDrawing.cColorFill
 		  case 1
-		    c = tempDrawing.cColorOutline
+		    c = tempDrawing.cColorLine
 		  case 2
 		    c = tempDrawing.cColorText
 		  end select
@@ -556,7 +559,7 @@ End
 		  c = new clsDrawing
 		  
 		  c.cColorFill = tempDrawing.cColorFill
-		  c.cColorOutline = tempDrawing.cColorOutline
+		  c.cColorLine = tempDrawing.cColorLine
 		  c.cColorText = tempDrawing.cColorText
 		  
 		  c.iCirlesMin = slCircles.Value
@@ -568,6 +571,7 @@ End
 		  c.myCallback = AddressOf ctr.callbackPictureFinished
 		  
 		  ctr.myDrawing = c
+		  ctr.grpName.Caption = "Image " + cstr(UBound(aControls) + 2)
 		  
 		  //for placement vertically
 		  iTop =  20 + ((ubound(aControls) + 1) * ctr.Height)
@@ -635,7 +639,7 @@ End
 		  case 0
 		    g.DrawingColor = tempDrawing.cColorFill
 		  case 1
-		    g.DrawingColor = tempDrawing.cColorOutline
+		    g.DrawingColor = tempDrawing.cColorLine
 		  case 2
 		    g.DrawingColor = tempDrawing.cColorText
 		  end select
@@ -673,7 +677,7 @@ End
 		  case 0
 		    tempDrawing.cColorFill = selectedColor
 		  case 1
-		    tempDrawing.cColorOutline = selectedColor
+		    tempDrawing.cColorLine = selectedColor
 		  case 2
 		    tempDrawing.cColorText = selectedColor
 		  end select

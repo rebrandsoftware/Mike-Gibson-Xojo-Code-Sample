@@ -57,13 +57,13 @@ Protected Class clsDrawing
 		  dim j as integer
 		  
 		  for j = 0 to i
-		    myTempPicture = modGraphics.drawCircle(myTempPicture, me.cColorFill, me.cColorOutline)
+		    myTempPicture = modGraphics.drawCircle(myTempPicture, me.cColorFill, me.cColorLine)
 		  next
 		  
 		  i = r.InRange(me.iLinesMin, me.iLinesMax)
 		  
 		  for j = 0 to i
-		    myTempPicture = modGraphics.drawLine(myTempPicture, me.cColorOutline)
+		    myTempPicture = modGraphics.drawLine(myTempPicture, me.cColorLine)
 		  next
 		  
 		  myTempPicture = modGraphics.drawText(myTempPicture, me.sName, me.cColorText)
@@ -87,15 +87,15 @@ Protected Class clsDrawing
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
-		cColorFill As color = Color.green
+		cColorFill As color = Color.Orange
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
-		cColorOutline As Color = Color.Blue
+		cColorLine As Color = Color.Green
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
-		cColorText As color = Color.Black
+		cColorText As color = Color.Blue
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
@@ -213,7 +213,7 @@ Protected Class clsDrawing
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="cColorOutline"
+			Name="cColorLine"
 			Visible=false
 			Group="Behavior"
 			InitialValue="&c000000"
@@ -267,6 +267,22 @@ Protected Class clsDrawing
 			InitialValue=""
 			Type="string"
 			EditorType="MultiLineEditor"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="bRunning"
+			Visible=false
+			Group="Behavior"
+			InitialValue="false"
+			Type="Boolean"
+			EditorType=""
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="dDuration"
+			Visible=false
+			Group="Behavior"
+			InitialValue=""
+			Type="double"
+			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

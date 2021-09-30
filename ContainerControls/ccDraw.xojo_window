@@ -11,6 +11,7 @@ Begin ContainerControl ccDraw
    EraseBackground =   True
    HasBackgroundColor=   False
    Height          =   144
+   Index           =   -2147483648
    InitialParent   =   ""
    Left            =   0
    LockBottom      =   False
@@ -235,7 +236,6 @@ Begin ContainerControl ccDraw
       Width           =   16
    End
    Begin Timer timStatus
-      Enabled         =   True
       Index           =   -2147483648
       LockedInPosition=   False
       Period          =   1000
@@ -434,9 +434,6 @@ End
 		  if myDrawing <> nil then
 		    if myDrawing.myFinishedPicture = nil then
 		      ProgressWheel1.Visible = true
-		      if grpName.Caption = "Name" then
-		        grpName.Caption = myDrawing.sName
-		      end if
 		    else
 		      showPicture()
 		      lblStatus.text = "Creation time: " + cstr(cint(cstr(myDrawing.dDuration))) + " ms" //use cInt to remove trailing significant digits
@@ -448,6 +445,14 @@ End
 	#tag EndEvent
 #tag EndEvents
 #tag ViewBehavior
+	#tag ViewProperty
+		Name="Index"
+		Visible=true
+		Group="ID"
+		InitialValue="-2147483648"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Name"
 		Visible=true
